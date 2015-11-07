@@ -4,4 +4,8 @@ node_js:
 before_script:
   - npm install -g gulp
   - npm install gulp
+  - npm install gulp-jslint
+  - npm install gulp-mocha
+  - npm install gulp-jasmine
+  - npm install jasmine-node
 script: gulp
