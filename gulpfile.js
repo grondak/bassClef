@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     jslint = require('gulp-jslint'),
     mocha = require('gulp-mocha'),
-    files = ['music.js'];
+    files = ['lib/index.js'],
+    jasmine = require('gulp-jasmine');
 
 // npm install gulp-jslint
 gulp.task('jslint', function() {
@@ -59,12 +60,17 @@ gulp.task('jslint', function() {
     });
 
 // npm install --save-dev gulp-mocha    
-gulp.task('test', ['jslint'], function () {
+gulp.task('mocha', ['jslint'], function () {
     
-    return gulp.src('../tests/test.js', {read: false})
+    return gulp.src('test/test.js', {read: false})
         // gulp-mocha needs filepaths so you can't have any plugins before it 
         .pipe(mocha({reporter: 'nyan'}));
 });
 
+gulp.task('jasmine', ['mocha'], function () {
+    return gulp.src('spec/music-spec.js')
+        .pipe(jasmine());
+});
+
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['jslint', 'test']);
+gulp.task('default', ['jslint', 'mocha', 'jasmine']);

@@ -94,3 +94,4 @@
 45 error If you need help, you may report this error at:
 45 error     <https://github.com/npm/npm/issues>
 46 verbose exit [ 1, true ]
+node_modules
