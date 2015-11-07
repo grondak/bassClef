@@ -1,0 +1,29 @@
+{
+    "name": "baseclef",
+    "version": "0.0.1",
+    "description": "A node package for music-related functions",
+    "main": "./lib/index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/grondak/bassclef"
+    },
+    "keywords": ["music"],
+    "author": {
+        "name": "Tony Reynolds"
+    },
+    "readme": "A node module for music-related functions",
+    "readmeFilename": "README.md",
+    "dependencies": {},
+    "devDependencies": {},
+    "optionalDependencies": {},
+    "engines": {
+        "node": "*"
+    },
+    "bugs": {
+        "url": "https://github.com/grondak/bassclef/issues"
+    },
+    "homepage": "https://github.com/grondak/bassclef",
+    "_id": "baseclef@0.0.1",
+    "scripts": {},
+    "_from": "baseclef@"
+}
