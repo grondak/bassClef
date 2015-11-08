@@ -95,3 +95,4 @@
 45 error     <https://github.com/npm/npm/issues>
 46 verbose exit [ 1, true ]
 node_modules
+.DS_Store

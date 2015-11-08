@@ -31,8 +31,8 @@ describe('bassclef knows the scales ', function () {
 
 describe('bassclef gives undefined for', function () {
    
-   it('scales it does not know, like G', function () {
+   it('scales that are not based on notes, like ', function () {
 
-       expect(music.getScale('G')).toEqual({ 'notes': undefined });
+       expect(music.getScale('Your Mom')).toEqual({ 'notes': undefined });
    });
 });

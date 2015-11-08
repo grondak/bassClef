@@ -39,8 +39,21 @@ describe('bassclef', function () {
            assert.equal('C C# D D# E F F# G G# A A# B C', bassclef.getChromatic()['notes']);
        })
    });
+   
+   describe('whichNote()', function () {
 
-   describe('higherHalfstep', function() {
+      it('should return the note number of the chromatic scale if the requested string is a note', function () {
+
+          assert.equal('0', bassclef.whichNote('C'));
+          assert.equal('1', bassclef.whichNote('C#'));
+      });
+      it('should return undefined when asking for the position of something that is not a note', function () {
+
+         assert.equal(undefined, bassclef.whichNote('Your mom')); 
+      }); 
+   });
+
+   describe('higherHalfstep()', function() {
 
        it('should give a halfstep above a note', function (){
 
@@ -54,7 +67,7 @@ describe('bassclef', function () {
        });
    });
 
-   describe('lowerHalfstep', function() {
+   describe('lowerHalfstep()', function() {
 
        it('should give a halfstep below a note', function () {
 
@@ -67,4 +80,52 @@ describe('bassclef', function () {
            assert.equal(undefined, bassclef.lowerHalfstep('YourMom'));
        });
    });
+   
+   describe('higherWholestep()', function() {
+
+      it('should give a whole step above a note', function () {
+
+            assert.equal('C#', bassclef.higherWholestep('B'));
+            assert.equal('C', bassclef.higherWholestep('A#'));
+            assert.equal('E', bassclef.higherWholestep('D'));     
+       });
+       it('should return undefined when asking for a whole step above something that is not a note', function () {
+
+           assert.equal(undefined, bassclef.higherWholestep('YourMom'));
+       });
+   });
+
+   describe('lowerWholestep()', function() {
+       
+       it('should give a whole step below a note', function () {
+
+            assert.equal('C#', bassclef.lowerWholestep('D#'));
+            assert.equal('C', bassclef.lowerWholestep('D'));
+            assert.equal('E', bassclef.lowerWholestep('F#'));     
+       });
+       it('should return undefined when asking for a whole step below something that is not a note', function () {
+
+           assert.equal(undefined, bassclef.lowerWholestep('YourMom'));
+       });
+   });
+   
+   describe('stepsUp()', function() {
+       
+       it('should return undefined when asking for neither a whole or half step up', function () {
+         
+            assert.equal(undefined, bassclef.stepsUp('Your Mom'));  
+       });
+       it('should return a note half step up from the parameter when asked for a half step up', function () {
+
+           assert.equal('C#', bassclef.stepsUp('C', 'h'));
+           assert.equal('C', bassclef.stepsUp('B', 'h'));
+           assert.equal('E', bassclef.stepsUp('D#', 'h'));
+       });
+       it('should return a note a whole step up from the parameter when asked for a whole step up', function () {
+
+           assert.equal('C#', bassclef.stepsUp('B', 'w'));
+           assert.equal('C', bassclef.stepsUp('A#', 'w'));
+           assert.equal('E', bassclef.stepsUp('D', 'w'));
+       });
+   })
 });
