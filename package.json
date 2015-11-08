@@ -1,6 +1,6 @@
 {
   "name": "bassclef",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "description": "A node package for music-related functions",
   "main": "./lib/index.js",
