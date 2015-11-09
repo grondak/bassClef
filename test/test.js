@@ -21,6 +21,28 @@ describe('bassclef', function () {
           assert.equal(undefined, bassclef.getScale('unknown')['notes']);
       });
    });
+   
+   describe('getScaleBy()', function() {
+       
+      it('should return C D E F G A B C when asked for C', function () {
+
+          assert.equal('C D E F G A B C', bassclef.getScaleBy('C', 'ionian')['notes']);
+      });
+      it('should return E F# G# A B C# D# E when asked for E', function () {
+         
+         assert.equal('E F# G# A B C# D# E', bassclef.getScaleBy('E', 'ionian')['notes']); 
+      });
+      it('should return A B C D E F G A when asked for Amin', function () {
+          
+          assert.equal('A B C D E F G A', bassclef.getScaleBy('A', 'aeolian')['notes']);
+      });
+      it('should return undefined when asked for an unknown key', function () {
+          assert.equal(undefined, bassclef.getScaleBy('unknown', 'aeolian')['notes']);
+      });
+      it('should return undefined when asked for an unknown mode', function () {
+          assert.equal(undefined, bassclef.getScaleBy('C', 'notamode')['notes']);
+      });
+   })
 
    describe('getScales()', function () {
 
@@ -46,6 +68,7 @@ describe('bassclef', function () {
 
           assert.equal('0', bassclef.whichNote('C'));
           assert.equal('1', bassclef.whichNote('C#'));
+          assert.equal('11', bassclef.whichNote('B'));
       });
       it('should return undefined when asking for the position of something that is not a note', function () {
 
@@ -73,7 +96,8 @@ describe('bassclef', function () {
 
             assert.equal('C#', bassclef.lowerHalfstep('D'));
             assert.equal('C', bassclef.lowerHalfstep('C#'));
-            assert.equal('E', bassclef.lowerHalfstep('F'));     
+            assert.equal('E', bassclef.lowerHalfstep('F'));
+            assert.equal('B', bassclef.lowerHalfstep('C'));
        });
        it('should return undefined when asking for a halfstep below something that is not a note', function () {
 
