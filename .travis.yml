@@ -8,4 +8,6 @@ before_script:
   - npm install gulp-mocha
   - npm install gulp-jasmine
   - npm install jasmine-node
+  - npm install istanbul
+  - npm install --save-dev gulp-istanbul
 script: gulp
