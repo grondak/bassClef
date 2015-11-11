@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
     jslint = require('gulp-jslint'),
     mocha = require('gulp-mocha'),
-    files = ['lib/index.js'],
+    files = ['lib/index.js', 'test/test.js', 'spec/music-spec.js'],
     jasmine = require('gulp-jasmine');
 
 // npm install gulp-jslint
