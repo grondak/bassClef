@@ -170,5 +170,38 @@
                 assert.equal('E', bassclef.stepsUp('D', 'w'));
             });
         });
+
+        describe('getInterval()', function () {
+
+            it('should know intervals like', function () {
+
+                assert.equal('C', bassclef.getInterval('C', 'I'));
+                assert.equal('E', bassclef.getInterval('E', 'I'));
+                assert.equal('F#', bassclef.getInterval('F#', 'I'));
+                assert.equal('C#', bassclef.getInterval('C', 'bII'));
+                assert.equal('D', bassclef.getInterval('C', 'II'));
+                assert.equal('D#', bassclef.getInterval('C', 'bIII'));
+                assert.equal('E', bassclef.getInterval('C', 'III'));
+                assert.equal('F', bassclef.getInterval('C', 'IV'));
+                assert.equal('F#', bassclef.getInterval('C', 'bV'));
+                assert.equal('G', bassclef.getInterval('C', 'V'));
+                assert.equal('G#', bassclef.getInterval('C', 'bVI'));
+                assert.equal('A', bassclef.getInterval('C', 'VI'));
+                assert.equal('A#', bassclef.getInterval('C', 'bVII'));
+                assert.equal('B', bassclef.getInterval('C', 'VII'));
+                assert.equal('C', bassclef.getInterval('C', 'VIII'));
+                assert.equal('D', bassclef.getInterval('C', 'IX'));
+            });
+
+            it('should return undefined when asking an unknown interval', function () {
+
+                assert.equal(undefined, bassclef.getInterval('C', 'Your Mom'));
+            });
+
+            it('should return undefined when asking an unknown note', function () {
+
+                assert.equal(undefined, bassclef.getInterval('Your Mom', 'I'));
+            });
+        });
     });
 }());
